@@ -1,0 +1,3 @@
+package com.vocal.controller;
+import com.vocal.dto.CommerceDtos.*; import com.vocal.service.CartService; import jakarta.validation.Valid; import lombok.RequiredArgsConstructor; import org.springframework.web.bind.annotation.*; import java.security.Principal; import java.util.*;
+@RestController @RequestMapping("/api/cart") @RequiredArgsConstructor public class CartController { private final CartService service; @GetMapping List<CartLine> list(Principal p){return service.list(p);} @PostMapping List<CartLine> add(@Valid @RequestBody AddCartRequest r, Principal p){return service.add(r,p);} @DeleteMapping("/{id}") void remove(@PathVariable Long id, Principal p){service.remove(id,p);} }

@@ -1,0 +1,3 @@
+package com.vocal.controller;
+import com.vocal.repository.*; import lombok.RequiredArgsConstructor; import org.springframework.web.bind.annotation.*; import java.util.*;
+@RestController @RequestMapping("/api/admin") @RequiredArgsConstructor public class AdminController { private final ProductRepository products; private final OrderRepository orders; private final UserRepository users; @GetMapping("/dashboard") Map<String,Object> dashboard(){return Map.of("revenue",0,"products",products.count(),"orders",orders.count(),"users",users.count(),"conversionRate",3.8);} @GetMapping("/products") Object products(){return products.findAll();} @GetMapping("/orders") Object orders(){return orders.findAll();} @GetMapping("/users") Object users(){return users.findAll();} }

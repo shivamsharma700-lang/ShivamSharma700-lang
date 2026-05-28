@@ -1,0 +1,1 @@
+export default function StaticPage({title}){return <main className="container-x py-20"><h1 className="font-display text-6xl">{title}</h1><p className="mt-6 max-w-3xl text-white/60">This production scaffold includes polished content sections, legal placeholders, SEO metadata hooks and API-ready layouts for the Vocal commerce experience.</p></main>}
