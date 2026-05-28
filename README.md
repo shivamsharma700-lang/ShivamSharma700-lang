@@ -23,6 +23,7 @@ flowchart LR
 - `docs/` — API, database, deployment and product architecture documents.
 - `docker-compose.yml` — local MySQL, Redis, API and web stack.
 - `.github/workflows/ci.yml` — Maven and Vite CI checks.
+- `docs/CI_TROUBLESHOOTING.md` — frontend CI install/build troubleshooting notes.
 
 ## Quick Start
 
