@@ -1,0 +1,27 @@
+spring:
+  application.name: vocal-commerce
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/vocal?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${DB_USER:vocal}
+    password: ${DB_PASSWORD:vocal}
+  jpa:
+    hibernate.ddl-auto: validate
+    open-in-view: false
+    properties.hibernate.format_sql: true
+  flyway.enabled: true
+  data.redis.host: ${REDIS_HOST:localhost}
+  mail:
+    host: ${MAIL_HOST:localhost}
+    port: ${MAIL_PORT:1025}
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-me-change-me-change-me-change-me-change-me-change-me}
+    access-minutes: ${JWT_ACCESS_MINUTES:30}
+    refresh-days: ${JWT_REFRESH_DAYS:14}
+  cors-origins: ${CORS_ORIGINS:http://localhost:5173}
+  stripe-key: ${STRIPE_SECRET_KEY:sk_test_placeholder}
+  razorpay-key: ${RAZORPAY_KEY_ID:rzp_test_placeholder}
+  razorpay-secret: ${RAZORPAY_KEY_SECRET:placeholder}
+  cloudinary-url: ${CLOUDINARY_URL:cloudinary://key:secret@cloud}
+server:
+  port: ${PORT:8080}

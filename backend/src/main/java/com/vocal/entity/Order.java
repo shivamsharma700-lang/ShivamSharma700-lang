@@ -1,0 +1,4 @@
+package com.vocal.entity;
+import com.vocal.enums.OrderStatus; import jakarta.persistence.*; import lombok.*; import java.math.BigDecimal; import java.util.*;
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder @Entity @Table(name="orders")
+public class Order extends BaseEntity { @Column(nullable=false, unique=true) private String orderNumber; @ManyToOne(fetch=FetchType.LAZY) private User user; @Enumerated(EnumType.STRING) private OrderStatus status; @Column(nullable=false, precision=12, scale=2) private BigDecimal subtotal; @Column(nullable=false, precision=12, scale=2) private BigDecimal tax; @Column(nullable=false, precision=12, scale=2) private BigDecimal shipping; @Column(nullable=false, precision=12, scale=2) private BigDecimal total; @OneToMany(mappedBy="order", cascade=CascadeType.ALL, orphanRemoval=true) private List<OrderItem> items=new ArrayList<>(); }
