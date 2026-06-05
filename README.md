@@ -46,6 +46,24 @@ npm run dev -- --port 4173
 
 Open http://localhost:4173 to inspect the BlinkMart home, shop, product detail, cart, checkout, login and admin screens.
 
+
+## Publish on GitHub Pages
+
+This repository includes a GitHub Actions workflow that builds the Vite frontend and publishes it to GitHub Pages.
+
+1. Push or merge your PR into `work`, `main`, or `master`.
+2. In GitHub, open **Settings → Pages**.
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+4. Open the **Actions** tab, run or wait for `deploy-pages`, then use the URL shown in the deployment output.
+
+For this repository, the default project-page URL will look like:
+
+```text
+https://<your-github-username>.github.io/ShivamSharma700-lang/
+```
+
+GitHub Pages hosts the static React frontend only. The Spring Boot API, MySQL, and Redis still need a backend host such as Render, Railway, Fly.io, AWS, or the Docker Compose setup.
+
 ## Production Notes
 
 1. Replace all placeholder secrets in `.env.example`.
