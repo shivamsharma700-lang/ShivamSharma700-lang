@@ -1,6 +1,6 @@
-# Vocal — Premium Men's Fashion Commerce
+# BlinkMart — Blinkit-like Quick Commerce App
 
-Vocal is a full-stack, production-oriented fashion e-commerce scaffold with a dark luxury UI, JWT-secured Spring Boot APIs, MySQL/Flyway schema, Redis-ready caching, payment gateway seams, and a React/Vite storefront plus admin shell.
+BlinkMart is a production-oriented quick-commerce scaffold inspired by Blinkit. It includes a polished React/Vite storefront, fast grocery discovery, product detail pages, cart, checkout, OTP-style login, admin operations dashboard, JWT-secured Spring Boot APIs, MySQL/Flyway schema, Redis-ready caching and deployment documentation.
 
 ## Architecture
 
@@ -19,10 +19,9 @@ flowchart LR
 ## Monorepo Structure
 
 - `backend/` — Spring Boot REST API with Security, JPA, Flyway, OpenAPI, DTOs and service/repository layering.
-- `frontend/` — React storefront/admin UI with reusable components, Redux Toolkit, Axios and animations.
+- `frontend/` — BlinkMart React storefront/admin UI with reusable components, Axios and responsive Tailwind layouts.
 - `docs/` — API, database, deployment and product architecture documents.
 - `docker-compose.yml` — local MySQL, Redis, API and web stack.
-- `.github/workflows/ci.yml` — Maven and Vite CI checks.
 - `docs/CI_TROUBLESHOOTING.md` — frontend CI install/build troubleshooting notes.
 
 ## Quick Start
@@ -36,25 +35,16 @@ docker compose up --build
 - API: http://localhost:8080
 - Swagger: http://localhost:8080/swagger-ui/index.html
 
-## One-command local desktop preview
+## Local Browser Preview
 
-Use these scripts to open the working Vocal preview on your computer without installing npm or Maven dependencies:
-
-- Windows: `scripts\start-preview.bat`
-- macOS/Linux: `./scripts/start-preview.sh`
-
-Both scripts serve `frontend/preview/index.html` at http://localhost:4173 and try to open your browser automatically. See `docs/LOCAL_PREVIEW.md` for detailed instructions.
-
-## Dependency-free UI Preview
-
-If npm registry access is unavailable, review the premium Vocal UI with the static preview:
+Run the Vite storefront locally:
 
 ```bash
-cd frontend/preview
-python3 -m http.server 4173
+cd frontend
+npm run dev -- --port 4173
 ```
 
-Open http://localhost:4173 to inspect the navbar, hero, collections, shop, product detail, cart, checkout and admin sections.
+Open http://localhost:4173 to inspect the BlinkMart home, shop, product detail, cart, checkout, login and admin screens.
 
 ## Production Notes
 

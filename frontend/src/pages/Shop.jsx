@@ -1,3 +1,42 @@
 import ProductCard from '../components/ProductCard';
-const products=Array.from({length:12},(_,i)=>({id:i,slug:`vocal-product-${i+1}`,name:['Cuban Collar Shirt','Oversized Tee','Tapered Jeans','Utility Jacket'][i%4],price:999+i*180,compareAtPrice:1499+i*200,imageUrls:[`https://images.unsplash.com/photo-${['1617127365659-c47fa864d8bc','1523398002811-999ca8dec234','1542272604-787c3835535d','1551028719-00167b16eac5'][i%4]}?q=80&w=900&auto=format&fit=crop`]}));
-export default function Shop(){return <main className="container-x py-12"><div className="flex flex-col justify-between gap-6 md:flex-row md:items-end"><div><p className="text-champagne uppercase tracking-[.35em]">Shop</p><h1 className="mt-3 font-display text-6xl">New season drops</h1></div><select className="rounded-full border border-white/10 bg-white/5 px-5 py-3"><option>Sort by latest</option><option>Price low to high</option></select></div><div className="mt-10 grid gap-8 lg:grid-cols-[280px_1fr]"><aside className="glass h-max rounded-3xl p-6"><h3 className="font-bold">Filters</h3>{['Category','Size','Color','Price'].map(f=><div className="mt-6 border-t border-white/10 pt-5" key={f}>{f}</div>)}</aside><section className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">{products.map(p=><ProductCard key={p.id} product={p}/>)}</section></div></main>}
+import { categories, products } from '../data/catalog';
+
+export default function Shop() {
+  return (
+    <main className="container-x py-12">
+      <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div>
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-[#0c831f]">BlinkMart store</p>
+          <h1 className="mt-3 text-5xl font-black tracking-tight md:text-6xl">Instant grocery catalog</h1>
+          <p className="mt-3 max-w-2xl font-medium text-slate-600">Fresh essentials, daily staples and household needs with delivery-time badges and high-converting add buttons.</p>
+        </div>
+        <select className="input-pill font-bold">
+          <option>Sort by fastest delivery</option>
+          <option>Price low to high</option>
+          <option>Best discount</option>
+        </select>
+      </div>
+
+      <div className="mt-10 grid gap-8 lg:grid-cols-[280px_1fr]">
+        <aside className="card h-max p-6 lg:sticky lg:top-28">
+          <h3 className="text-xl font-black">Filters</h3>
+          <div className="mt-5 space-y-3">
+            {categories.map((category) => (
+              <label className="flex cursor-pointer items-center justify-between rounded-2xl border border-slate-100 p-3 font-bold hover:border-[#0c831f]" key={category.name}>
+                <span>{category.emoji} {category.name}</span>
+                <input type="checkbox" className="accent-[#0c831f]" />
+              </label>
+            ))}
+          </div>
+          <div className="mt-6 rounded-3xl bg-[#f7cb46]/30 p-4 text-sm font-bold text-slate-700">
+            Free delivery unlocked on orders above ₹199.
+          </div>
+        </aside>
+
+        <section className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          {products.map((product) => <ProductCard key={product.id} product={product} />)}
+        </section>
+      </div>
+    </main>
+  );
+}
